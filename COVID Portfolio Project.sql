@@ -130,7 +130,7 @@ Where dea.continent is not NULL
 select *, (RollingPeopleVaccinated/Population)*100
 From #PercentPopulationVaccinated
 
---CREATE VIEW
+--CREATING VIEW
 Create View PercentPopulationVaccinated as
 Select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations,
 SUM(CAST(vac.new_vaccinations as bigint)) OVER (Partition by dea.Location Order by dea.location, 
